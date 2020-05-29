@@ -24,13 +24,10 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="dsTarefa"><span jhiTranslate="tasklistApp.tarefa.dsTarefa">Ds Tarefa</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dsObservacao"><span jhiTranslate="tasklistApp.tarefa.dsObservacao">Ds Observacao</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="boConcluido"><span jhiTranslate="tasklistApp.tarefa.boConcluido">Bo Concluido</span> <fa-icon icon="sort"></fa-icon></th>
-
-                    <th scope="col" jhiSortBy="createdDate"><span jhiTranslate="userManagement.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col" jhiSortBy="lastModifiedBy"><span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col" jhiSortBy="lastModifiedDate"><span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon></th>
-
+                    <th scope="col" jhiSortBy="createdDate"><span jhiTranslate="tasklistApp.tarefa.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col" jhiSortBy="lastModifiedBy"><span jhiTranslate="tasklistApp.tarefa.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col" jhiSortBy="lastModifiedDate"><span jhiTranslate="tasklistApp.tarefa.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -38,8 +35,20 @@
                 <tr *ngFor="let tarefa of tarefas ;trackBy: trackId">
                     <td><a [routerLink]="['/tarefa', tarefa.id, 'view']">{{ tarefa.id }}</a></td>
                     <td>{{ tarefa.dsTarefa }}</td>
-                    <td>{{ tarefa.dsObservacao }}</td>
-                    <td>{{ tarefa.boConcluido }}</td>
+<!--                    <td>{{ tarefa.boConcluido }}</td>-->
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="setAccomplished(tarefa, true)"  *ngIf="!tarefa.boConcluido"
+                                jhiTranslate="tasklistApp.tarefa.naoConcluido">Não Concluída</button>
+                        <button class="btn btn-success btn-sm" (click)="setAccomplished(tarefa, false)" *ngIf="tarefa.boConcluido"
+                                 jhiTranslate="tasklistApp.tarefa.concluido">Concluída</button>
+                    </td>
+
+
+                    <td>{{ tarefa.createdDate | date:'dd/MM/yy HH:mm' }}</td>
+                    <td>{{ tarefa.lastModifiedBy }}</td>
+                    <td>{{ tarefa.lastModifiedDate | date:'dd/MM/yy HH:mm' }}</td>
+
+
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

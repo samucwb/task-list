@@ -18,7 +18,13 @@
       },
       "dsTarefa": "Descrição",
       "dsObservacao": "Observação",
-      "boConcluido": "Concluída"
+      "boConcluido": "Concluída",
+      "createdBy": "Criado por",
+      "createdDate": "Criado em",
+      "lastModifiedBy": "Modificado por",
+      "lastModifiedDate": "Modificado em",
+      "naoConcluido": "Não Concluído",
+      "concluido": "Concluído"
     }
   }
 }

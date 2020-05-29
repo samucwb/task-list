@@ -48,6 +48,16 @@ export class TarefaComponent implements OnInit, OnDestroy {
       );
   }
 
+  private loadAll(): void {
+    this.tarefaService
+      .query({
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort()
+      })
+      .subscribe((res: HttpResponse<ITarefa[]>) => this.onSuccess(res.body, res.headers, this.page - 1));
+  }
+
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       this.page = data.pagingParams.page;
@@ -63,6 +73,10 @@ export class TarefaComponent implements OnInit, OnDestroy {
     if (this.eventSubscriber) {
       this.eventManager.destroy(this.eventSubscriber);
     }
+  }
+
+  setAccomplished(tarefa: ITarefa, isAccomplished: boolean): void {
+    this.tarefaService.update({ ...tarefa, boConcluido: isAccomplished }).subscribe(() => this.loadAll());
   }
 
   trackId(index: number, item: ITarefa): number {
