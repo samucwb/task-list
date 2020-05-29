@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.sschatz.tasklist",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "tasklist",
+    "packageName": "br.com.sschatz.tasklist",
+    "packageFolder": "br/com/sschatz/tasklist",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "ZjNmZjcwOWVkMTVjZDBjYzExZmY5MWZjMTZjMDQxODE5NjFiN2NmZTg3MjEyYjQ1ZWQ5YWMzMjhiODg5NjYwZWY4MzNkMDIyOWRkNzY4NzUzNTY2ZGRmYzlkZTdiMDU2ZDdmMGUwNDUwMTAxNjUyMjY0NjIzYWExZTY3ZTZiYTc=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cyborg",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1590763937088,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": ["pt-br", "en"],
+    "blueprints": []
+  }
+}
