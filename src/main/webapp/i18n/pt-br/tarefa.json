@@ -1,0 +1,24 @@
+{
+  "tasklistApp": {
+    "tarefa": {
+      "home": {
+        "title": "Tarefas",
+        "createLabel": "Criar nova Tarefa",
+        "createOrEditLabel": "Criar ou editar Tarefa",
+        "notFound": "Nenhuma Tarefa encontrado"
+      },
+      "created": "Um nova Tarefa foi criada com o identificador {{ param }}",
+      "updated": "Uma Tarefa foi atualizada com o identificador {{ param }}",
+      "deleted": "Uma Tarefa foi excluída com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir esta Tarefa {{ id }}?"
+      },
+      "detail": {
+        "title": "Tarefa"
+      },
+      "dsTarefa": "Descrição",
+      "dsObservacao": "Observação",
+      "boConcluido": "Concluída"
+    }
+  }
+}

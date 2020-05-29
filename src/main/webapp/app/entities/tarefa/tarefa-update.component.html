@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tarefa-heading" jhiTranslate="tasklistApp.tarefa.home.createOrEditLabel">Create or edit a Tarefa</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tasklistApp.tarefa.dsTarefa" for="field_dsTarefa">Ds Tarefa</label>
+                    <input type="text" class="form-control" name="dsTarefa" id="field_dsTarefa"
+                           formControlName="dsTarefa"/>
+                    <div *ngIf="editForm.get('dsTarefa')!.invalid && (editForm.get('dsTarefa')!.dirty || editForm.get('dsTarefa')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dsTarefa')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dsTarefa')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tasklistApp.tarefa.dsObservacao" for="field_dsObservacao">Ds Observacao</label>
+                    <input type="text" class="form-control" name="dsObservacao" id="field_dsObservacao"
+                           formControlName="dsObservacao"/>
+                    <div *ngIf="editForm.get('dsObservacao')!.invalid && (editForm.get('dsObservacao')!.dirty || editForm.get('dsObservacao')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dsObservacao')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 250 }">
+                        This field cannot be longer than 250 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tasklistApp.tarefa.boConcluido" for="field_boConcluido">Bo Concluido</label>
+                    <input type="checkbox" class="form-control" name="boConcluido" id="field_boConcluido"
+                           formControlName="boConcluido"/>
+                    <div *ngIf="editForm.get('boConcluido')!.invalid && (editForm.get('boConcluido')!.dirty || editForm.get('boConcluido')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('boConcluido')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
